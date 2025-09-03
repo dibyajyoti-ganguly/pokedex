@@ -1,20 +1,16 @@
-import usePokemonData from "../utils/usePokemonData";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Card from "./Card";
 
-const Dexcontainer = () => {
-  const pokemonData = usePokemonData();
+type DexcontainerProps = {
+  pokemonData: any[];
+};
 
-  /*const filteredData = pokemonData.map(
-    (p: { types: any }) => p.types[0].type.name
-  );*/
-
-  console.log(pokemonData);
-
+const Dexcontainer = ({ pokemonData }: DexcontainerProps) => {
   return (
     <div className="flex flex-wrap gap-6 px-48">
-      {pokemonData.map((p: unknown) => {
-        return <Card data={p} />;
-      })}
+      {pokemonData.map((p: any) => (
+        <Card key={p.id} data={p} />
+      ))}
     </div>
   );
 };

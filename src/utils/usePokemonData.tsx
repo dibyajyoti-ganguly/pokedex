@@ -1,36 +1,34 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 
 const usePokemonData = () => {
-  const [pokemonData, setPokemonData] = useState<any>([]);
+  const [pokemonData, setPokemonData] = useState<any[]>([]);
 
-  useEffect(() => {
-    const fetchPokemons = async () => {
-      try {
-        const res = await fetch(
-          "https://pokeapi.co/api/v2/pokemon/?limit=150"
-        );
-        const data = await res.json();
-        const results: any = data.results;
+  const fetchPokemons = useCallback(async (offset?: number) => {
+    try {
+      const randomOffset =
+        offset ?? Math.floor(Math.random() * (1025 - 21) + 21);
 
-        const detailedData = await Promise.all(
-          results.map(async (pokemon: { url: RequestInfo | URL }) => {
-            const response = await fetch(pokemon.url);
-            return response.json();
-          })
-        );
+      const res = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/?offset=${randomOffset}`
+      );
+      const data = await res.json();
+      const results: any = data.results;
 
-        setPokemonData(detailedData);
-      } catch (err) {
-        // Optional: console.error for debugging
-        console.log(err);
-      }
-    };
+      const detailedData = await Promise.all(
+        results.map(async (pokemon: { url: RequestInfo | URL }) => {
+          const response = await fetch(pokemon.url);
+          return response.json();
+        })
+      );
 
-    fetchPokemons();
+      setPokemonData(detailedData);
+    } catch (err) {
+      console.error(err);
+    }
   }, []);
 
-  return pokemonData;
+  return { pokemonData, fetchPokemons };
 };
 
 export default usePokemonData;
