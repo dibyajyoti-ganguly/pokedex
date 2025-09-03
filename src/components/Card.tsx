@@ -55,15 +55,15 @@ const Card = ({ data }: CardProps) => {
         src={sprites.other.dream_world.front_default}
         alt="pokemon"
       />
-      <div className="flex flex-col gap-2">
-        <p className="flex mx-auto font-onest text-xl font-semibold">
+      <div className="flex flex-col items-center gap-2">
+        <p className="font-onest text-xl font-semibold">
           {`#${id.toString().padStart(3, "0")}`}
         </p>
-        <p className="flex mx-auto font-onest text-2xl font-bold mb-1.5">
+        <p className="font-onest text-2xl font-bold mb-1.5">
           {name.charAt(0).toUpperCase() + name.slice(1)}
         </p>
         {typeIcon && (
-          <img src={typeIcon} alt={type1 || type2} className="w-12 mx-auto" />
+          <img src={typeIcon} alt={type1 || type2} className="w-12" />
         )}
       </div>
     </div>
