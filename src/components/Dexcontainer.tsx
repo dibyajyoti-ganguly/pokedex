@@ -3,6 +3,11 @@ import Card from "./Card";
 
 const Dexcontainer = () => {
   const pokemonData = usePokemonData();
+
+  /*const filteredData = pokemonData.map(
+    (p: { types: any }) => p.types[0].type.name
+  );*/
+
   console.log(pokemonData);
 
   return (
