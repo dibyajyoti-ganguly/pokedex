@@ -10,18 +10,18 @@ const Header = () => {
 
   return (
     <div
-      className={`flex mx-auto w-2/5 p-4 ${marginClass} justify-between items-center font-onest text-white text-2xl font-bold`}
+      className={`flex mx-auto w-full max-w-lg md:w-2/5 px-4 py-4 ${marginClass} justify-between items-center font-onest text-white text-xl md:text-2xl font-bold`}
     >
-      <div className="flex gap-2">
-        <img className="w-8" src={Logo} alt="Logo" />
-        <p>Pokedex</p>
+      <div className="flex gap-2 items-center">
+        <img className="w-6 md:w-8" src={Logo} alt="Logo" />
+        <p className="text-lg md:text-2xl">Pokedex</p>
       </div>
-      <div className="flex gap-5">
+      <div className="flex gap-3 md:gap-5">
         <a href="https://github.com/dibyajyoti-ganguly">
-          <FiGithub className="cursor-pointer" />
+          <FiGithub className="cursor-pointer text-xl md:text-2xl hover:text-gray-300 transition-colors" />
         </a>
         <a href="https://x.com/dibstwt">
-          <FaXTwitter className="cursor-pointer" />
+          <FaXTwitter className="cursor-pointer text-xl md:text-2xl hover:text-gray-300 transition-colors" />
         </a>
       </div>
     </div>

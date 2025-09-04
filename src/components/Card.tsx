@@ -49,21 +49,27 @@ const Card = ({ data }: CardProps) => {
   const typeIcon = typeIcons[type1] || typeIcons[type2] || typeIcons.normal;
 
   return (
-    <div className="flex flex-col gap-6 w-52 h-[320px] pt-8 cursor-pointer text-white bg-white/10 backdrop-blur-md border border-white/20 shadow-md hover:bg-white/20 transition-all duration-200">
+    <div className="flex flex-col gap-4 md:gap-6 w-full max-w-xs mx-auto h-72 md:h-80 pt-6 md:pt-8 cursor-pointer text-white bg-white/10 backdrop-blur-md border border-white/20 shadow-md hover:bg-white/20 hover:shadow-lg active:scale-95 transition-all duration-200 rounded-lg">
       <img
-        className="flex mx-auto w-32 h-28"
+        className="flex mx-auto w-24 h-20 md:w-32 md:h-28 object-contain"
         src={sprites.other.dream_world.front_default}
         alt="pokemon"
       />
-      <div className="flex flex-col items-center gap-2">
-        <p className="font-onest text-xl font-semibold">
+      <div className="flex flex-col items-center gap-2 px-2">
+        <p className="font-onest text-lg md:text-xl font-semibold">
           {`#${id.toString().padStart(3, "0")}`}
         </p>
-        <p className="font-onest text-2xl font-bold mb-1.5">
+        <p className="font-onest text-xl md:text-2xl font-bold mb-1 md:mb-1.5 text-center">
           {name.charAt(0).toUpperCase() + name.slice(1)}
         </p>
         {typeIcon && (
-          <img src={typeIcon} alt={type1 || type2} className="w-12" />
+          <div className="flex items-center justify-center h-8 md:h-12">
+            <img
+              src={typeIcon}
+              alt={type1 || type2}
+              className="w-8 md:w-12 h-auto object-contain"
+            />
+          </div>
         )}
       </div>
     </div>
