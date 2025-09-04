@@ -49,12 +49,20 @@ const Card = ({ data }: CardProps) => {
   const typeIcon = typeIcons[type1] || typeIcons[type2] || typeIcons.normal;
 
   return (
-    <div className="flex flex-col gap-4 md:gap-6 w-full max-w-xs mx-auto h-72 md:h-80 pt-6 md:pt-8 cursor-pointer text-white bg-white/10 backdrop-blur-md border border-white/20 shadow-md hover:bg-white/20 hover:shadow-lg active:scale-95 transition-all duration-200 rounded-lg">
+    <div
+      className="flex flex-col items-center justify-center gap-4 md:gap-6 
+  w-full max-w-xs mx-auto h-72 md:h-80 
+  cursor-pointer text-white 
+  bg-white/10 backdrop-blur-md border border-white/20 shadow-md 
+  hover:bg-white/20 hover:shadow-lg active:scale-95 
+  transition-all duration-200 rounded-lg"
+    >
       <img
-        className="flex mx-auto w-24 h-20 md:w-32 md:h-28 object-contain"
+        className="w-24 h-20 md:w-32 md:h-28 object-contain"
         src={sprites.other.dream_world.front_default}
         alt="pokemon"
       />
+
       <div className="flex flex-col items-center gap-2 px-2">
         <p className="font-onest text-lg md:text-xl font-semibold">
           {`#${id.toString().padStart(3, "0")}`}
