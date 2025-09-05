@@ -7,7 +7,7 @@ const usePokemonData = () => {
   const fetchPokemons = useCallback(async (offset?: number) => {
     try {
       const randomOffset =
-        offset ?? Math.floor(Math.random() * (1025 - 21) + 21);
+        offset ?? Math.floor(Math.random() * (501 - 21) + 21);
 
       const res = await fetch(
         `https://pokeapi.co/api/v2/pokemon/?offset=${randomOffset}`
